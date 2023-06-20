@@ -29,7 +29,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
       </span>
       <Link
         className=" rounded-full border-gray-900 bg-gray-900 border px-2 py-1 text-white w-full flex items-center justify-center font-semibold hover:bg-transparent hover:text-gray-900 transition duration-300 ease-in-out"
-        href={`/dashboard/pokemon/${pokemon.id}`}
+        href={`/dashboard/pokemons/${pokemon.name}`}
       >
         ver mas...
       </Link>
