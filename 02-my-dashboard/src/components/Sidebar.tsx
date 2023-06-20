@@ -3,6 +3,7 @@ import React from "react";
 import {
   IoBrowsersOutline,
   IoCalculator,
+  IoFootball,
   IoLogoReact,
 } from "react-icons/io5";
 import { SidebarMenuItem } from "./SidebarMenuItem";
@@ -20,15 +21,19 @@ const menuItems = [
     title: "Counter",
     subtitle: "Increment and decrement",
   },
+  {
+    path: "/dashboard/pokemons",
+    icon: <IoFootball />,
+    title: "Pokemons",
+    subtitle: "Static generation",
+  },
 ];
 
 export const Sidebar = () => {
-
-
   return (
     <div
       id="menu"
-      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-[25rem] left-0 h-screen overflow-y-scroll"
+      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-[25rem] left-0 h-screen overflow-y-scroll sticky top-0"
     >
       <div id="logo" className="my-4 px-6">
         <h1 className="flex items-center gap-2 text-lg md:text-2xl font-bold text-white">

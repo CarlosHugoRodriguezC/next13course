@@ -1,4 +1,4 @@
-import { CardCounter } from "@/app/shopping-cart";
+import { CardCounter } from "@/shopping-cart";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
