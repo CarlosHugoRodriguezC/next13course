@@ -16,13 +16,13 @@ const getPokemons = async ({
   }));
 };
 
-export default async function PokemonsPage() {
+export default async function FavoritePokemonsPage() {
   const pokemons = await getPokemons({ limit: 151 });
 
   return (
     <>
       <span className="text-5xl my-2">
-        Pokemons list <small className="text-blue-500">Static</small>
+        Favorite Pokemons <small className="text-blue-500">Global state</small>
       </span>
       <PokemonGrid pokemons={pokemons} />
     </>

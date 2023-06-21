@@ -5,27 +5,34 @@ import {
   IoCalculator,
   IoFootball,
   IoLogoReact,
+  IoStar,
 } from "react-icons/io5";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 const menuItems = [
   {
     path: "/dashboard/main",
-    icon: <IoBrowsersOutline />,
+    icon: <IoBrowsersOutline size={30} />,
     title: "Dashboard",
     subtitle: "Data overview",
   },
   {
     path: "/dashboard/counter",
-    icon: <IoCalculator />,
+    icon: <IoCalculator size={30} />,
     title: "Counter",
     subtitle: "Increment and decrement",
   },
   {
     path: "/dashboard/pokemons",
-    icon: <IoFootball />,
+    icon: <IoFootball size={30} />,
     title: "Pokemons",
     subtitle: "Static generation",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoStar size={30} />,
+    title: "Favorite Pokemons",
+    subtitle: "Global State",
   },
 ];
 
@@ -37,7 +44,7 @@ export const Sidebar = () => {
     >
       <div id="logo" className="my-4 px-6">
         <h1 className="flex items-center gap-2 text-lg md:text-2xl font-bold text-white">
-          <IoLogoReact />
+          <IoLogoReact size={30} />
           <span>Dash</span>
           <span className="text-blue-500">8</span>.
         </h1>
