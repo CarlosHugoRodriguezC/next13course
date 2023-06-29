@@ -4,6 +4,8 @@ import { NextResponse, NextRequest } from "next/server";
 export async function GET(request: Request) {
 
   await prisma.todo.deleteMany({});
+
+  // await prisma.employee.
   
   await prisma.todo.createMany({
     data: [
