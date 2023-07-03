@@ -6,17 +6,17 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Rest Todos",
-  description: "Rest Todos",
+  title: "Server Todos",
+  description: "Server Todos (server actions)",
 };
 
-export default async function RestTodosPage() {
+export default async function ServerTodosPage() {
   const todos = await prisma.todo.findMany({ orderBy: { id: "desc" } });
   return (
-    <div>
-      <h1 className="text-2xl mb-3">Rest Todos (Stable)</h1>
+    <>
+      <h1 className="text-2xl mb-3">Server Actions (Alpha)</h1>
       <NewTodo />
       <TodosGrid todos={todos} />
-    </div>
+    </>
   );
 }
