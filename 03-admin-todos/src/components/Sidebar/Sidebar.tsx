@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
+  IoBasketOutline,
   IoCalendarOutline,
   IoCheckboxOutline,
+  IoCodeWorkingOutline,
   IoListOutline,
   IoLogOutOutline,
 } from "react-icons/io5";
@@ -23,6 +25,16 @@ const menuItems: MenuItemProps[] = [
     title: "Server Actions",
     icon: <IoListOutline size={25} />,
     path: "/dashboard/server-todos",
+  },
+  {
+    title: "Cookies",
+    icon: <IoCodeWorkingOutline size={25} />,
+    path: "/dashboard/cookies",
+  },
+  {
+    title: "Productos",
+    icon: <IoBasketOutline size={25} />,
+    path: "/dashboard/products",
   },
 ];
 
