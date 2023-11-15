@@ -1,3 +1,4 @@
+import { getUserServerSession } from "@/app/auth";
 import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
 import * as yup from "yup";
@@ -32,6 +33,11 @@ const postSchema = yup.object({
 });
 
 export async function POST(request: Request) {
+  const user = await getUserServerSession();
+
+  if (!user)
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+
   try {
     const { completed, description } = await postSchema.validate(
       await request.json()
@@ -41,6 +47,7 @@ export async function POST(request: Request) {
       data: {
         completed,
         description,
+        userId: user.id,
       },
     });
 

@@ -8,15 +8,15 @@ import { useRouter } from "next/navigation";
 
 export const NewTodo = () => {
   const [description, setDescription] = useState("");
-  // const router = useRouter();
+  const router = useRouter();
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (description.trim().length === 0) return;
-    // await todosApi.createTodo(description);
-    await createTodo(description);
+    await todosApi.createTodo(description);
+    // await createTodo(description);
     setDescription("");
-    // router.refresh();
+    router.refresh();
   };
 
   const onClearCompleted = async () => {
