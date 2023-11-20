@@ -8,7 +8,7 @@ export const TopMenu = () => {
   const openSideMenu = useUIStore((state) => state.openSideMenu);
 
   return (
-    <nav className="flex justify-between px-5 py-3 w-full">
+    <nav className="flex justify-between px-5 py-3 w-full sticky top-0 z-10 enhance-topbar">
       {/* Logo */}
       <div className="">
         <Link href={"/"}>
@@ -24,20 +24,20 @@ export const TopMenu = () => {
       {/* Menu */}
       <div className="hidden sm:block">
         <Link
-          className="m-1 p-2 rounded-md transition-all hover:bg-gray-100"
+          className="m-1 p-2 rounded-lg transition-all hover:bg-gray-100"
           href={"/category/men"}
         >
           Men
         </Link>
         <Link
-          className="m-1 p-2 rounded-md transition-all hover:bg-gray-100"
+          className="m-1 p-2 rounded-lg transition-all hover:bg-gray-100"
           href={"/category/women"}
         >
           Women
         </Link>
         <Link
-          className="m-1 p-2 rounded-md transition-all hover:bg-gray-100"
-          href={"/category/kids"}
+          className="m-1 p-2 rounded-lg transition-all hover:bg-gray-100"
+          href={"/category/kid"}
         >
           Kids
         </Link>

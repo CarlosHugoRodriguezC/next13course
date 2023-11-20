@@ -35,7 +35,7 @@ export const Sidebar = () => {
       {/* TODO: slide effect */}
       <aside
         className={clsx(
-          "fixed p-5 right-0 top-0 w-[31.25rem] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
+          "fixed p-5 right-0 top-0  md:w-[31.25rem] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
           {
             "translate-x-0": isSideMenuOpen,
             "translate-x-full": !isSideMenuOpen,
@@ -57,21 +57,21 @@ export const Sidebar = () => {
         </div>
         <nav>
           <Link
-            href="/"
+            href="/profile"
             className="flex items-center gap-3 mt-10 p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoPersonOutline size={30} className="mr-2" />
             <span className="text-xl">Profile</span>
           </Link>
           <Link
-            href="/"
+            href="/orders"
             className="flex items-center gap-3 mt-5 p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoTicketOutline size={30} className="mr-2" />
             <span className="text-xl">Orders</span>
           </Link>
           <Link
-            href="/"
+            href="/auth/login"
             className="flex items-center gap-3 mt-5 p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoLogInOutline size={30} className="mr-2" />
@@ -87,14 +87,14 @@ export const Sidebar = () => {
           {/* line separator */}
           <div className="w-full h-px bg-gray-200 my-10"></div>
           <Link
-            href="/"
+            href="/orders"
             className="flex items-center gap-3 mt-5 p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoTicket size={30} className="mr-2" />
             <span className="text-xl">Orders</span>
           </Link>
           <Link
-            href="/"
+            href="/users"
             className="flex items-center gap-3 mt-5 p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoPeopleOutline size={30} className="mr-2" />
