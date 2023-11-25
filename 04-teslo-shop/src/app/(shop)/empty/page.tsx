@@ -9,7 +9,7 @@ export default function EmptyPage() {
         <div>
           <h1 className="text-3xl font-bold">Your cart is empty</h1>
           <p className="text-gray-500 mb-5">
-            Looks like you haven't added any items to your cart yet.
+            Looks like you haven&apos;t added any items to your cart yet.
           </p>
           <Link href={"/"} className="text-blue-500">
             Continue shopping
