@@ -10,12 +10,34 @@ import {
 import { titleFont } from "@/config/fonts";
 import { notFound } from "next/navigation";
 import { StockLabel } from "../../../../components/product/stock-label/StockLabel";
+import { Metadata, ResolvingMetadata } from "next";
 
 interface Props {
   params: {
     slug: string;
   };
 }
+
+export const generateMetadata = async (
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> => {
+  const { slug } = params;
+
+  const product = await getProductBySlug(slug);
+
+  // const previousImages = (await parent).openGraph?.images ?? [];
+
+  return {
+    title: product?.title ?? "Product not found",
+    description: product?.description ?? "Product not found",
+    openGraph: {
+      title: product?.title ?? "Product not found",
+      description: product?.description ?? "Product not found",
+      images: [`/products/${product?.images[1]}`],
+    },
+  };
+};
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = params;

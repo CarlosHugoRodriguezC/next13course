@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { sleep } from "@/utils";
 
 export const getStockBySlug = async (slug: string): Promise<number> => {
   try {
@@ -10,9 +11,11 @@ export const getStockBySlug = async (slug: string): Promise<number> => {
       },
     });
 
+    // await sleep(3);
+
     return product.inStock;
   } catch (error) {
     console.log(error);
-    throw new Error("Something went wrong when getting stock by slug");
+    return 0;
   }
 };

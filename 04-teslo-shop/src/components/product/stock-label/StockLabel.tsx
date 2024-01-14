@@ -9,21 +9,29 @@ interface Props {
 
 export const StockLabel = ({ slug }: Props) => {
   const [stock, setStock] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getStock();
   }, []);
 
   const getStock = async () => {
-    // TODO: get stock from server
     const stock = await getStockBySlug(slug);
     setStock(stock);
-    console.log(stock);
+    setIsLoading(false);
   };
 
   return (
-    <p className="text-end font-semibold mb-5">
-      <small>{stock} available</small>
-    </p>
+    <>
+      <p className="text-end font-semibold mb-5">
+        {isLoading ? (
+          <span className="animate-pulse bg-gray-300 px-10 rounded-md">
+            &nbsp;
+          </span>
+        ) : (
+          <span className="rounded-md text-sm">{stock} available</span>
+        )}
+      </p>
+    </>
   );
 };
