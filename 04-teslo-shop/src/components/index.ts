@@ -1,3 +1,4 @@
+import { StockLabel } from "./product/stock-label/StockLabel";
 export { Footer } from "./ui/footer/Footer";
 export { PageNotFound } from "./ui/not-found/PageNotFound";
 export { Pagination } from "./ui/pagination/Pagination";
@@ -7,6 +8,7 @@ export { TopMenu } from "./ui/top-menu/TopMenu";
 
 export { ProductGrid } from "./products/product-grid/ProductGrid";
 export { ProductGridItem } from "./products/product-grid/ProductGridItem";
+export { StockLabel } from "./product/stock-label/StockLabel";
 
 export { SizeSelector } from "./product/size-selector/SizeSelector";
 export { QuantitySelector } from "./product/quantity-selector/QuantitySelector";

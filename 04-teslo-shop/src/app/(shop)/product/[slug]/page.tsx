@@ -1,14 +1,15 @@
+export const revalidate = 604800; // 7 days
+
+import { getProductBySlug } from "@/actions";
 import {
   ProductMobileSlideShow,
   ProductSlideshow,
   QuantitySelector,
   SizeSelector,
-  Title,
 } from "@/components";
 import { titleFont } from "@/config/fonts";
-import { initialData } from "@/seed/seed";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { StockLabel } from "../../../../components/product/stock-label/StockLabel";
 
 interface Props {
   params: {
@@ -16,10 +17,10 @@ interface Props {
   };
 }
 
-export default function ProductPage({ params }: Props) {
+export default async function ProductPage({ params }: Props) {
   const { slug } = params;
 
-  const product = initialData.products.find((product) => product.slug === slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return notFound();
@@ -56,7 +57,8 @@ export default function ProductPage({ params }: Props) {
         {/* quantity selector */}
         <QuantitySelector quantity={1} />
         {/* add to cart button */}
-        <button className="btn-primary my-5 w-full">Add to cart</button>
+        <button className="btn-primary mt-5 w-full">Add to cart</button>
+        <StockLabel slug={product.slug} />
         <h3 className="text-sm font-bold">Description</h3>
         <p className="text-sm">{product.description}</p>
       </div>
