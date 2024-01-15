@@ -1,20 +1,12 @@
-import { Title } from "@/components";
-import { initialData } from "@/seed/seed";
-import Image from "next/image";
 import Link from "next/link";
-import { QuantitySelector } from "../../../components/product/quantity-selector/QuantitySelector";
 import { redirect } from "next/navigation";
-
-const productsInCart = [
-  initialData.products.at(0),
-  initialData.products.at(1),
-  initialData.products.at(2),
-];
+import { ProductsInCart } from "./ui/ProductsInCart";
+import { Title } from "@/components";
 
 export default function CartPage() {
-  if (false) {
-    redirect("/empty");
-  }
+  // if (false) {
+  //   redirect("/empty");
+  // }
 
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
@@ -30,24 +22,7 @@ export default function CartPage() {
             </Link>
 
             {/* Items */}
-
-            {productsInCart.map((product) => (
-              <div key={product?.slug} className="flex gap-3 mb-5">
-                <Image
-                  src={`/products/${product?.images.at(0) ?? ""}`}
-                  alt={product?.title ?? ""}
-                  width={100}
-                  height={100}
-                  className="object-cover rounded-xl w-28 h-28"
-                />
-                <div>
-                  <p>{product?.title ?? ""}</p>
-                  <p>${product?.price ?? ""}</p>
-                  <QuantitySelector quantity={2} />
-                  <button className="underline">Remover</button>
-                </div>
-              </div>
-            ))}
+            <ProductsInCart />
           </div>
 
           {/* Summary */}

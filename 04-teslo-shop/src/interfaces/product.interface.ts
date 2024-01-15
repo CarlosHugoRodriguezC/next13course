@@ -1,6 +1,6 @@
 export interface Product {
   id: string;
-  description: string | null; 
+  description: string | null;
   images: string[];
   inStock: number;
   price: number;
@@ -10,6 +10,16 @@ export interface Product {
   title: string;
   // type: ProductType; // TODO: Uncomment this line
   gender: Category;
+}
+
+export interface CartProduct {
+  id: string;
+  slug: string;
+  title: string;
+  price: number;
+  quantity: number;
+  size: Size;
+  image: string;
 }
 
 export type Category = "men" | "women" | "kid" | "unisex";
