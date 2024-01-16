@@ -14,7 +14,6 @@ export const QuantitySelector = ({
   onQuantityChanged,
 }: Props) => {
   const onValueChange = (value: number) => {
-    console.log("value", value);
     if (quantity === 1 && value === -1) return;
 
     if (quantity === limit && value === 1) return;

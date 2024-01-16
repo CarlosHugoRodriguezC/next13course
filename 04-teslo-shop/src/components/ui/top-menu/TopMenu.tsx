@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export const TopMenu = () => {
   const openSideMenu = useUIStore((state) => state.openSideMenu);
-  const getTotalItemsInCart = useCartStore((store) => store.getTotalItems());
+  const itemsInCart = useCartStore((store) => store.getTotalItems());
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -55,11 +55,14 @@ export const TopMenu = () => {
         <Link href={"/search"}>
           <IoSearchOutline className="w-5 h-5" />
         </Link>
-        <Link href={"/cart"} className="relative">
+        <Link
+          href={itemsInCart > 0 && isLoaded ? "/cart" : "/empty"}
+          className="relative"
+        >
           <IoCartOutline className="w-5 h-5" />
-          {isLoaded && getTotalItemsInCart > 0 && (
-            <span className="absolute -top-1 -right-1 bg-blue-500 text-white rounded-full px-1 text-xs">
-              {getTotalItemsInCart}
+          {isLoaded && itemsInCart > 0 && (
+            <span className="fade-in absolute -top-1 -right-1 bg-blue-500 text-white rounded-full px-1 text-xs">
+              {itemsInCart}
             </span>
           )}
         </Link>

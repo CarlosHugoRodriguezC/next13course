@@ -3,12 +3,20 @@
 import { QuantitySelector } from "@/components";
 import { CartProduct } from "@/interfaces";
 import { useCartStore } from "@/store";
+import { currencyFormat } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export const ProductsInCart = () => {
   const productsInCart = useCartStore((store) => store.cart);
+  const updateProductQuantity = useCartStore(
+    (store) => store.updateProductQuantity
+  );
+  const removeProductFromCart = useCartStore(
+    (store) => store.removeProductFromCart
+  );
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -47,9 +55,19 @@ export const ProductsInCart = () => {
             <Link className="hover:underline" href={`/product/${product.slug}`}>
               {product?.title ?? ""}
             </Link>
-            <p>${product?.price ?? ""}</p>
-            <QuantitySelector quantity={2} onQuantityChanged={() => {}} />
-            <button className="underline">Remover</button>
+            <p>{currencyFormat(product.price ?? 0)}</p>
+            <QuantitySelector
+              quantity={product.quantity}
+              onQuantityChanged={(quantity) =>
+                updateProductQuantity(product, quantity)
+              }
+            />
+            <button
+              className="underline"
+              onClick={() => removeProductFromCart(product)}
+            >
+              Remover
+            </button>
           </div>
         </div>
       ))}
